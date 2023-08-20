@@ -1,0 +1,36 @@
+---
+import ExperienceTile from "./ExperienceTile.astro";
+
+const experiences = [
+  "engineering management @ Workday",
+  "engineering @ Earnest",
+  "agile/tech consulting @ ThoughtWorks",
+  "quality @ Huge",
+  "quality @ Ultimate Software",
+];
+
+const clients = [
+    "Reatiler",
+    "Food Brand",
+    "Bank",
+    "Media Brand",
+    "Tech Giant"
+]
+---
+
+<div class="flex flex-col gap-8 mt-auto flex-none">
+  <p>
+    Currently helping food and beverage operaters connect with their guests and
+    increase profits @ Webspenser
+  </p>
+  <div class="flex gap-4 items-baseline w-[40rem] flex-wrap">
+    <p>Previously</p>
+    {experiences.map(experience => <ExperienceTile text={experience} />)}
+    <p>&amp;</p>
+    <ExperienceTile text="Courses @ TBD" />
+  </div>
+  <div class="flex items-center gap-4">
+    <p>Select clients</p>
+    {clients.map(client => <div class="w-12 h-12 rounded-full bg-white"></div>)}
+  </div>
+</div>

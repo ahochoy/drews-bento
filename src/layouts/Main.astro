@@ -1,0 +1,52 @@
+---
+import Header from "../components/Header.astro";
+
+import "@fontsource-variable/inter";
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+    --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+    --font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+    --font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+  }
+  html {
+    font-size: 100%;
+  }
+  body {
+    background: #eae0d5;
+    font-family: "Inter Variable", sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #0a0908;
+    padding: 5vmin;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+  }
+</style>
