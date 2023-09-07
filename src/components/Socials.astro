@@ -1,9 +1,21 @@
 ---
+import xLogo from '../assets/x-logo.svg';
+import instaLogo from '../assets/insta-logo.svg';
+import linkedInLogo from '../assets/linkedin-logo.svg';
 ---
 
-<div class="flex items-center gap-4">
-  <p>Let's connect</p>
-  <div class="w-12 h-12 rounded-full bg-white"></div>
-  <div class="w-12 h-12 rounded-full bg-white"></div>
-  <div class="w-12 h-12 rounded-full bg-white"></div>
+<div class="flex flex-col items-end md:flex-row md:items-center gap-2 md:gap-6 float-right mix-blend-difference">
+  <div class="flex gap-2 bg-[var(--light)] items-center border border-solid border-black rounded-full px-2 py-[.125rem]">
+    <svg height="16" width="16"><circle cx="8" cy="8" r="6" fill="chartreuse" /></svg>
+    <p>DMs are open</p>
+  </div>
 </div>
+<style>
+  .social-link {
+    text-decoration:underline;
+  }
+
+  .social-link:hover {
+
+  }
+</style>

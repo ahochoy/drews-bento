@@ -1,10 +1,11 @@
 ---
 interface Props {
   text: string;
+  experienceIndex?: number;
 }
-const { text } = Astro.props;
+const { text, experienceIndex } = Astro.props;
 ---
 
-<div class="rounded-lg p-2 bg-white">
+<div class="rounded-lg p-2 bg-[var(--light)] shadow" data-exp={experienceIndex}>
   <p>{text}</p>
 </div>

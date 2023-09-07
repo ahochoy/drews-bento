@@ -1,12 +1,30 @@
 ---
+import "@fontsource-variable/newsreader";
 import MainLayout from "../layouts/Main.astro";
 import Resume from "../components/Resume.astro";
 import Bento from "../components/Bento.astro";
+import woodwave from "../assets/woodwave.mp4";
 ---
 
-<MainLayout title="Welcome to Astro.">
-  <main class="flex grow">
-    <Resume />
-    <Bento />
+<MainLayout title="Yes, &...">
+  <main class="overflow-hidden relative">
+    <section class="overflow-hidden w-[100dvw] h-[100dvh] absolute">
+      <video autoplay loop muted>
+        <source src={woodwave} type="video/mp4">
+      </video>
+    </section>
+    <section class="ah-main mt-[50vh] md:mt-[100vh] w-screen md:h-screen relative">
+      <Resume />
+      <div class="">
+        <Bento />
+      </div>
+    </section>
+    <section class="w-screen md:h-screen bg-[var(--main-bg)] flex flex-col p-[5vmin] place-content-end">
+      <div class="flex items-baseline">
+        <div class="grow border-solid border-b border-[var(--accent)]"></div>
+        <p class="text-9xl font-['Newsreader_Variable'] text-[var(--accent)]">&.</p>
+      </div>
+    </section>
+    
   </main>
 </MainLayout>

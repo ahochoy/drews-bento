@@ -1,36 +1,47 @@
 ---
+import gapLogo from '../assets/gap-logo.svg';
+import chaseLogo from '../assets/chase-logo.svg';
+import nestleLogo from '../assets/nestle-logo.svg';
+import googleLogo from '../assets/google-logo.png';
 import ExperienceTile from "./ExperienceTile.astro";
 
 const experiences = [
   "engineering management @ Workday",
   "engineering @ Earnest",
-  "agile/tech consulting @ ThoughtWorks",
+  "agile/software consulting @ ThoughtWorks",
   "quality @ Huge",
   "quality @ Ultimate Software",
 ];
-
-const clients = [
-    "Reatiler",
-    "Food Brand",
-    "Bank",
-    "Media Brand",
-    "Tech Giant"
-]
 ---
 
-<div class="flex flex-col gap-8 mt-auto flex-none">
+<div class="ah-resume flex flex-col gap-8 m-[5vmin] flex-none md:absolute md:bottom-0 md:left-0 tracking-tight">
   <p>
     Currently helping food and beverage operaters connect with their guests and
-    increase profits @ Webspenser
+    increase profits @ <a class="underline hover:text-[var(--accent)] transition duration-300" href="https://www.webspenser.com" target="_blank">Webspenser</a>
   </p>
-  <div class="flex gap-4 items-baseline w-[40rem] flex-wrap">
+  <div class="flex gap-2 md:gap-4 text-sm md:text-base items-baseline w-full md:w-[40rem] flex-wrap">
     <p>Previously</p>
-    {experiences.map(experience => <ExperienceTile text={experience} />)}
+    {experiences.map((experience, index) => <ExperienceTile text={experience} experienceIndex={index} />)}
     <p>&amp;</p>
-    <ExperienceTile text="Courses @ TBD" />
+    <ExperienceTile text="education @ FIU, HBS Online, eCornell, Parsons" />
   </div>
-  <div class="flex items-center gap-4">
+  <div class="flex items-center gap-4 md:gap-6">
     <p>Select clients</p>
-    {clients.map(client => <div class="w-12 h-12 rounded-full bg-white"></div>)}
+    <div data-exp="2"><img class="h-6 md:h-8" src={gapLogo.src} /></div>
+    <div data-exp="3"><img class="h-6 md:h-8" src={chaseLogo.src} /></div>
+    <div data-exp="3"><img class="h-6 md:h-8" src={nestleLogo.src} /></div>
+    <div data-exp="3"><img class="h-6 md:h-8" src={googleLogo.src} /></div>
   </div>
 </div>
+
+<style is:global>
+  .ah-resume:has([data-exp="2"]:hover) [data-exp="2"],
+  .ah-resume:has([data-exp="3"]:hover) [data-exp="3"]
+  {
+    opacity: .5;
+  }
+
+  .ah-resume [data-exp] {
+    transition: opacity 400ms;
+  }
+</style>

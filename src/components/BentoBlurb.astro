@@ -1,0 +1,19 @@
+---
+import "@fontsource-variable/newsreader";
+interface Props {
+  title: string;
+  description?: string;
+  white?: boolean;
+  first?: boolean;
+}
+const { title, description, white, first } = Astro.props;
+---
+<div class:list={["z-10 p-8", {"text-[var(--light)]": white}]}>
+    <p class="text-4xl mb-2 tracking-tighter font-medium">
+        <span class="text-[125%] font-['Newsreader_Variable']">{first ? "": "& "}</span>
+        {title}
+    </p>
+    <div class="text-lg tracking-tighter">
+      <slot />
+    </div>
+</div>

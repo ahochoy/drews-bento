@@ -1,20 +1,92 @@
 ---
+import { applyPolyfills } from 'astro/app/node';
+import chacha from '../assets/chacha.webp';
+import foodie from '../assets/foodie.webp';
+import BentoBlurb from "./BentoBlurb.astro";
+import notesApp from '../assets/notes-app.png';
+import notionApp from '../assets/Notion-logo.svg';
+import todoistApp from '../assets/todoist-icon.svg';
+import googleCalendarApp from '../assets/Google_Calendar_icon.svg';
+import freeformApp from '../assets/Freeform+app.png';
+import emojiHands from '../assets/emoji-hands.png';
+import jihyosZone from '../assets/Jihyo_-_Zone.png';
 ---
-
 <div
-  class="grid grid-rows-2 grid-cols-5 gap-8 h-full aspect-[5/2] place-items-stretch flex-none"
+  class="ah-bento grid md:grid-rows-2 md:grid-cols-5 gap-8 md:h-screen md:aspect-[5/2] md:absolute md:-right-[250vh] pt-[15vmin] p-[5vmin]"
 >
-  <div class="bg-emerald-100 rounded-lg row-span-2 grid place-items-center">
-    1
+  <div class="ah-bento-tile md:row-span-2">
+    <BentoBlurb first title="> whois &rew?">
+      <p>I'm an engineer, entreprenuer, an educator based in the Bay Area.</p>
+      <p class="py-2">If you’re interested in talking shop or just want to connect you can find me on <a class="social-link" href="https://www.linkedin.com/in/ahochoy/" target="_blank">linkedin</a>, <a class="social-link" href="https://twitter.com/ahochoy" target="_blank">x/twitter</a>, and <a class="social-link" href="https://www.instagram.com/ahochoy/" target="_blank">instagram.</a></p>
+      <p class="flex items-center gap-4"><img src={emojiHands.src} class="h-8" />Thanks for visiting!</p>
+    </BentoBlurb>
   </div>
-  <div class="bg-emerald-100 rounded-lg grid place-items-center">2</div>
-  <div class="bg-emerald-100 rounded-lg col-span-2 grid place-items-center">
-    3
+  <div class="ah-bento-tile">
+    <img class="absolute w-full" src={foodie.src} alt="Dimsum dishes from Yumcha in Hong Kong" />
   </div>
-  <div class="bg-emerald-100 rounded-lg grid place-items-center">4</div>
-  <div class="bg-emerald-100 rounded-lg col-span-2 grid place-items-center">
-    5
+  <div class="ah-bento-tile">
+    <BentoBlurb title="jetsetting foodie" >
+      <p>I flew to Vietnam just to visit a particular buffet (they had lobster and it was worth it). I love trying new foods and in good ol' Michelin fashion, I'm willing to travel for exceptional yum.</p>
+    </BentoBlurb>
   </div>
-  <div class="bg-emerald-100 rounded-lg grid place-items-center">6</div>
-  <div class="bg-emerald-100 rounded-lg grid place-items-center">7</div>
+  <div class="ah-bento-tile md:col-span-2">
+    <img class="absolute min-w-full object-cover" src={chacha.src} alt="Mixed coat terrier overlooking a park area next to a body of water" />
+  </div>
+  <div class="ah-bento-tile md:col-span-2">
+    <BentoBlurb first title="I’m also a recovering multitasker">
+      <p>There’s nothing like clear priorities and a clean desk. I like trying out new digital tools and toting my iPad around but nothing beats good ol’ fashioned paper and pen. Some of my favorite stationary brands are <a href="https://www.jetpens.com/Maruman-Mnemosyne-Notebooks/ct/765" target="_blank">maruman mnemosyne</a>, <a href="https://rhodiapads.com/" target="_blank">rhodia</a>, <a href="https://blackwing602.com/" target="_blank">blackwing</a>, <a href="https://www.staedtler.com/intl/en/" target="_blank">staedtler</a>, and <a href="https://www.zebrapen.com/" target="_blank">zebra</a>.</p>
+      <div class="mt-4 flex gap-4 items-center">
+        <p>My app go-tos</p>
+        <img src={notesApp.src} class="h-8" />
+        <img src={notionApp.src} class="h-8" />
+        <img src={todoistApp.src} class="h-8" />
+        <img src={googleCalendarApp.src} class="h-8" />
+        <img src={freeformApp.src} class="h-8" />
+      </div>
+    </BentoBlurb>
+  </div>
+  <div class="ah-bento-tile">
+    <BentoBlurb title="spotify dj">
+      <p>Always looking for something new, send recs (jazz, kpop, soul, r&b, and house prefered.)</p>
+      <div class="flex items-end gap-4 mt-4">
+        <img src={jihyosZone.src} class="h-24 drop-shadow" />
+        <div class="text-base">
+          <p>Currently listening to:</p>
+          <a href="https://open.spotify.com/album/1GIkapvyAw5lwdNw66hI44?si=IdyUQLVmS6eoyHEqbv4ICQ" target="_blank" class="italic">Zone by Jihyo</a>
+        </div>
+      </div>
+    </BentoBlurb>
+  </div>
+  <div class="ah-bento-tile">
+    <BentoBlurb title="man of God.">
+      <p>&quot;The very essence of your word is truth.&quot; Psalm 119:160</p>
+    </BentoBlurb>
+  </div>
 </div>
+<style>
+  .ah-bento {
+    background-color: var(--main-bg);
+    box-shadow: -50px 0 50px var(--main-bg);
+  }
+
+  .ah-bento-tile {
+    position: relative;
+    background: whitesmoke;
+    border-radius: .5rem;
+    border: 1px solid #f8f9fb;
+    display: flex;
+    align-items: flex-start;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    overflow: hidden;
+    min-height: 25vh;
+  }
+
+  .ah-bento-tile a {
+    text-decoration: underline;
+    transition: color 300ms;
+  }
+
+  .ah-bento-tile a:hover {
+    color: var(--accent)
+  }
+</style>
